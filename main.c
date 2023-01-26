@@ -381,7 +381,7 @@ fRT.arrTestSizes=arrTestSizes;
         //TODO: malloc an array with iNumRepeats variables of type double (on next line)
         fRT.arrRuntimes[i] = (double*)malloc(sizeof(double)*iNumRepeats); /* replace NULL with your code and uncomment the line */
 
-        for( j=0; j<iNumRepeats; j++ )
+       // for( j=0; j<iNumRepeats; j++ )
        {
             //Generate test data for the function f
             testData = generateTestInput( 0, arrTestSizes[i], arrTestSizes[i] );
@@ -399,10 +399,10 @@ fRT.arrTestSizes=arrTestSizes;
     }
 
     //TODO: on the next line, malloc space for fRT.arrAvg (you'll need to store iNumTestCaseSizes variables of type double)
-    fRT.arrAvg =(double*)malloc(sizeof(double)*iNumTestCaseSizes) ; /* replace NULL with your code */
+    fRT.arrAvg =(double*)malloc(iNumTestCaseSizes*sizeof(double)) ; /* replace NULL with your code */
     //TODO: Calculate the average runtimes (i.e. call computeAvg here)
 
-// computeAvg; 
+computeAvg; 
     return fRT;
 }
 
@@ -443,7 +443,7 @@ FILE *generateTestInput( int min, int max, int size )
  */
 void computeAvg( functionRuntimes fRT )
 {
-// (fRt*len)/len
+
 }
 
 /* TODO: TO BE COMPLETED BY YOU
@@ -454,16 +454,23 @@ void computeAvg( functionRuntimes fRT )
  */
 void printRuntimeTable( functionRuntimes fRT )
 {
-
+    printf("%d",fRT.arrRuntimes);
+ 
 }
 
 /* TODO: TO BE COMPLETED BY YOU
  * Free all of the dynamically allocated memory in fRT
  */
+ 
 void freeFunctionRuntimes( functionRuntimes fRT )
 {
-free(fRT.arrAvg);
-free(fRT.arrTestSizes);
-    // for loop
 
+int i,j;
+for(i=0;i<fRT.iNumRepeats; i++){
+    free(fRT.arrRuntimes[i]);
+    free(fRT.arrRuntimes);
+    free(fRT.arrTestSizes);
+}
+    
 
+}
