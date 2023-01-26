@@ -364,24 +364,23 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
     fRT.iNumTestCaseSizes=iNumTestCaseSizes;
 
     /* malloc space for arrTestSizes in fRT to hold iNumTestCaseSizes number of ints */
-    fRT.arrTestSizes=(int*)malloc(sizeof(int)*iNumTestCaseSizes);
+    fRT.arrTestSizes=(int*)malloc(sizeof(int));
     
    /* fill arrTestSizes in fRT with the variable arrTestSizes (hint: use a loop) */
-for (i=0; i<iNumTestCaseSizes; i++){
 
-fRT.arrTestSizes=arrTestSizes;
-} 
 
 
     //TODO: malloc an array with iNumTestCaseSizes variables of type double* (on next line)
-    fRT.arrRuntimes = (double**)malloc(sizeof(double*)*iNumTestCaseSizes); /* replace NULL with your code */
+     /* replace NULL with your code */
+     for( i=0; j<iNumTestCaseSizes; j++ ){
+    fRT.arrRuntimes = (double**)malloc(sizeof(double*));
     
-    
-    {
         //TODO: malloc an array with iNumRepeats variables of type double (on next line)
-        fRT.arrRuntimes[i] = (double*)malloc(sizeof(double)*iNumRepeats); /* replace NULL with your code and uncomment the line */
+        fRT.arrRuntimes[i] = (double*)malloc(sizeof(double));  /* replace NULL with your code and uncomment the line */
 
-       // for( j=0; j<iNumRepeats; j++ )
+        for( j=0; j<iNumRepeats; j++ ){
+
+       }
        {
             //Generate test data for the function f
             testData = generateTestInput( 0, arrTestSizes[i], arrTestSizes[i] );
