@@ -359,7 +359,7 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
 	// Added this
 
     /* fill iNumRepeats in fRT with the variable iNumRepeats */
-	fRT.iNumRepeats;
+	fRT.iNumRepeats=iNumRepeats;
 		
     /* fill iNumTestCaeeSizes in fRT with the variable iNumTestCaseSizes */
 		fRT.iNumTestCaseSizes=iNumTestCaseSizes;
@@ -375,7 +375,7 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
     fRT.arrRuntimes =(double**)malloc(sizeof(double*)*iNumTestCaseSizes); /* replace NULL with your code */
     for( i=0; i<iNumTestCaseSizes; i++ ){
     fRT.arrRuntimes;
-    }
+    
         //TODO: malloc an array with iNumRepeats variables of type double (on next line)
         fRT.arrRuntimes[i] =(double*)malloc(sizeof(double)); /* replace NULL with your code and uncomment the line */
 
@@ -396,7 +396,7 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
             //TODO: uncomment the next line line after you've malloc-ed memory for fRT.arrRuntimes
             fRT.arrRuntimes[i][j] = (double)(end - start) / CLOCKS_PER_SEC;
         }
-    
+}
 
     //TODO: on the next line, malloc space for fRT.arrAvg (you'll need to store iNumTestCaseSizes variables of type double)
     fRT.arrAvg = NULL; /* replace NULL with your code */
