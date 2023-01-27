@@ -465,10 +465,11 @@ void freeFunctionRuntimes( functionRuntimes fRT )
 	int i;
     for (i =0; i<fRT.iNumRepeats;i++){
       free(fRT.arrRuntimes[i]);   
+      free(fRT.arrRuntimes);
 
     }  
 
-free(fRT.arrRuntimes);
+
 
     
 
