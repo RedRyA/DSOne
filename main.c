@@ -364,10 +364,11 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
     /* fill iNumTestCaeeSizes in fRT with the variable iNumTestCaseSizes */
 		fRT.iNumTestCaseSizes=iNumTestCaseSizes;
     /*DONE  malloc space for arrTestSizes in fRT to hold iNumTestCaseSizes number of ints */
-	fRT.arrTestSizes=(int*)malloc(sizeof(iNumTestCaseSizes));
+	
     /*DONE  fill arrTestSizes in fRT with the variable arrTestSizes (hint: use a loop) */
 	for(i=0;i<iNumTestCaseSizes;i++){
-	fRT.arrTestSizes=arrTestSizes;
+fRT.arrTestSizes=(int*)malloc(sizeof(int)*iNumTestCaseSizes);
+	
 	}
 ///////////////////////////////me///////////////////////////////
 
@@ -454,6 +455,9 @@ void computeAvg( functionRuntimes fRT )
  */
 void printRuntimeTable( functionRuntimes fRT )
 {
+   
+
+    
 
 }
 
@@ -463,14 +467,15 @@ void printRuntimeTable( functionRuntimes fRT )
 void freeFunctionRuntimes( functionRuntimes fRT )
 {
 	int i;
-    for (i =0; i<fRT.iNumRepeats;i++){
+    for (i =0; i<fRT.iNumTestCaseSizes;i++){
       free(fRT.arrRuntimes[i]);   
-      free(fRT.arrRuntimes);
+      
 
     }  
-
-
-
-    
+  
+free(fRT.arrRuntimes);
 
 }
+    
+
+
