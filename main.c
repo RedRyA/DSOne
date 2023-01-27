@@ -371,9 +371,9 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
 ///////////////////////////////me///////////////////////////////
 
     //TODO: malloc an array with iNumTestCaseSizes variables of type double* (on next line)
-   
+   fRT.arrTestSizes=arrTestSizes;
     for( i=0; i<iNumTestCaseSizes; i++ ){
-        fRT.arrTestSizes=arrTestSizes;
+        
  fRT.arrRuntimes=(double**)malloc(sizeof(double*)*iNumTestCaseSizes); /* replace NULL with your code 
     
     
