@@ -45,7 +45,7 @@ int main( int argc, char *argv[] )
 
     /* TODO : Fill in your name */
     printf("This solution was completed by:\n");
-    printf("<student name>\n");
+    printf("Ryan Reddoch\n");
 
     srand(time(0));
 
@@ -354,21 +354,33 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
 
     //TODO: copy passed data into the fRT variable.  Specifically do the following:
     /* fill szName in fRT with the variable szName */
-    /* fill iNumRepeats in fRT with the variable iNumRepeats */
-    /* fill iNumTestCaseSizes in fRT with the variable iNumTestCaseSizes */
-    /* malloc space for arrTestSizes in fRT to hold iNumTestCaseSizes number of ints */
-    /* fill arrTestSizes in fRT with the variable arrTestSizes (hint: use a loop) */
+	fRT.szName=szName;
+	// Added this
 
+    /* fill iNumRepeats in fRT with the variable iNumRepeats */
+	fRT.iNumRepeats;
+		
+    /* fill iNumTestCaeeSizes in fRT with the variable iNumTestCaseSizes */
+		fRT.iNumTestCaseSizes=iNumTestCaseSizes;
+    /*DONE  malloc space for arrTestSizes in fRT to hold iNumTestCaseSizes number of ints */
+	fRT.arrTestSizes=(int*)malloc(sizeof(iNumTestCaseSizes));
+    /*DONE  fill arrTestSizes in fRT with the variable arrTestSizes (hint: use a loop) */
+	for(i=0;i<iNumTestCaseSizes;i++){
+	fRT.arrTestSizes=arrTestSizes;
+	}
 
     //TODO: malloc an array with iNumTestCaseSizes variables of type double* (on next line)
-    fRT.arrRuntimes = NULL; /* replace NULL with your code */
-    for( i=0; i<iNumTestCaseSizes; i++ )
-    {
+    fRT.arrRuntimes =(double**)malloc(sizeof(double*)); /* replace NULL with your code */
+    for( i=0; i<iNumTestCaseSizes; i++ ){
+    fRT.arrRuntimes;
+    }
         //TODO: malloc an array with iNumRepeats variables of type double (on next line)
-        //fRT.arrRuntimes[i] = NULL; /* replace NULL with your code and uncomment the line */
+        fRT.arrRuntimes[i] =(double*)malloc(sizeof(double)); /* replace NULL with your code and uncomment the line */
 
-        for( j=0; j<iNumRepeats; j++ )
-        {
+        for( j=0; j<iNumRepeats; j++ ){
+		fRT.arrRuntimes[i];
+	}
+	}
             //Generate test data for the function f
             testData = generateTestInput( 0, arrTestSizes[i], arrTestSizes[i] );
 
@@ -380,7 +392,7 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
 
             //Enter the elapsed number of seconds into the arrRuntimes array for fRT
             //TODO: uncomment the next line line after you've malloc-ed memory for fRT.arrRuntimes
-            //fRT.arrRuntimes[i][j] = (double)(end - start) / CLOCKS_PER_SEC;
+            fRT.arrRuntimes[i][j] = (double)(end - start) / CLOCKS_PER_SEC;
         }
     }
 
@@ -447,5 +459,6 @@ void printRuntimeTable( functionRuntimes fRT )
  */
 void freeFunctionRuntimes( functionRuntimes fRT )
 {
-
+	free(arrRunTimes);
+free(arrRunTimes[i]);
 }
