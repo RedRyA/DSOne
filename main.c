@@ -380,7 +380,7 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
          /* replace NULL with your code and uncomment the line */
 
         for( j=0; j<iNumRepeats; j++ ){
-		fRT.arrRuntimes[i] =(double*)malloc(sizeof(double));
+		fRT.arrRuntimes[i] =(double*)malloc(sizeof(double)*iNumRepeats);
 	
 	
             //Generate test data for the function f
