@@ -366,8 +366,9 @@ functionRuntimes timeAlgorithm( char *szName, int iNumRepeats, int iNumTestCaseS
     /*DONE  malloc space for arrTestSizes in fRT to hold iNumTestCaseSizes number of ints */
 	
     /*DONE  fill arrTestSizes in fRT with the variable arrTestSizes (hint: use a loop) */
-	for(i=0;i<iNumTestCaseSizes;i++){
-fRT.arrTestSizes=(int*)malloc(sizeof(int)*iNumTestCaseSizes);
+   fRT.arrTestSizes=(int*)malloc(sizeof(int)*iNumTestCaseSizes); 
+	for(i=0;iNumRepeats;i++){
+fRT.arrTestSizes;
 	
 	}
 ///////////////////////////////me///////////////////////////////
@@ -466,12 +467,17 @@ void printRuntimeTable( functionRuntimes fRT )
  */
 void freeFunctionRuntimes( functionRuntimes fRT )
 {
-	int i;
+	int i,j;
     for (i =0; i<fRT.iNumTestCaseSizes;i++){
       free(fRT.arrRuntimes[i]);   
       
 
     }  
+    
+	for(j=0;j<fRT.iNumRepeats;j++){
+free(fRT.arrTestSizes);
+	
+	}
   
 free(fRT.arrRuntimes);
 
