@@ -14,8 +14,6 @@ typedef struct functionRuntimes {
   int *arrTestSizes;     // array containing the test case sizes
 } functionRuntimes;
 
-
-
 // Functions used to test the runtimes
 functionRuntimes timeAlgorithm(char *, int, int, int[], void (*f)(FILE *));
 FILE *generateTestInput(int, int, int);
@@ -350,16 +348,13 @@ functionRuntimes timeAlgorithm(char *szName, int iNumRepeats,
 
   // TODO: malloc an array with iNumTestCaseSizes variables of type double* (on
   // next line)
-  //  fRT.arrTestSizes=arrTestSizes;
   fRT.arrRuntimes = (double **)malloc(sizeof(double *) * iNumTestCaseSizes);
+
   for (i = 0; i < iNumTestCaseSizes; i++) {
 
-    /* replace NULL with your code
-
-
-          //TODO: malloc an array with iNumRepeats variables of type double (on
-       next line)
-           /* replace NULL with your code and uncomment the line */
+    // TODO: malloc an array with iNumRepeats variables of type double (on
+    //  next line)
+    /* replace NULL with your code and uncomment the line */
     fRT.arrRuntimes[i] = (double *)malloc(sizeof(double) * iNumRepeats);
     for (j = 0; j < iNumRepeats; j++) {
 
@@ -385,9 +380,10 @@ functionRuntimes timeAlgorithm(char *szName, int iNumRepeats,
       sizeof(double) * iNumTestCaseSizes); /* replace NULL with your code */
   // TODO: Calculate the average runtimes (i.e. call computeAvg here)
 
-  
   ////// PUT IN PARAMS /////
-  computeAvg();
+
+  // computeAvg(fRT);
+
   return fRT;
 }
 
@@ -423,20 +419,19 @@ FILE *generateTestInput(int min, int max, int size) {
  * Calculate and insert the average runtime for each set of test data into fRT
  */
 void computeAvg(functionRuntimes fRT) {
-  int i;
-int counter;
-double sum=0;
-double avg;
-  for(i=0;i<fRT.iNumTestCaseSizes;i++){
+  int i, j;
+  int counter;
+  double sum = 0;
+  double avg;
+  for (i = 0; i < fRT.iNumTestCaseSizes; i++) {
+    for (j = 0; j < fRT.iNumRepeats; i++) {
 
-    sum+=fRT.arrRuntimes[i];
-    counter++;
-    
-    
+      sum += fRT.arrRuntimes[i][j];
+      counter++;
+    }
   }
-avg=sum/avg;
-  printf("%lf",avg);
-  
+  // avg = sum / counter;
+  //  printf("This is Average %lf", sum);
 }
 
 /* TODO: TO BE COMPLETED BY YOU
@@ -452,13 +447,30 @@ avg=sum/avg;
 
 void printRuntimeTable(functionRuntimes fRT) {
   int i, j;
-  for (i = 0; i < fRT.iNumTestCaseSizes; i++) {
-    for (j = 0; j < fRT.iNumTestCaseSizes; j++) {
-      printf("%5s", " ");
+  // printf("%s","Test Size:");
 
-      printf("%7.3lf ", fRT.arrRuntimes[i][j]);
+  printf("\n%s\n", fRT.szName);
+  printf("%-2s", "Test Size ");
+  for (i = 0; i < fRT.iNumRepeats; i++) {
+
+    printf("%5.5s %d", "Test", i + 1);
+  }
+
+  printf("\n");
+
+  // printf("%d",fRT.arrTestSizes[i]);
+
+  for (i = 0; i < fRT.iNumTestCaseSizes; i++) {
+
+    printf("%d", fRT.arrTestSizes[i]);
+    for (j = 0; j < fRT.iNumRepeats; j++) {
+      // printf("Test Case Size %d %d \n",i, j);
+
+      printf("%7.3lf", fRT.arrRuntimes[i][j]);
     }
+
     printf("\n");
+    printf("%s", "");
   }
 }
 
@@ -471,7 +483,8 @@ void freeFunctionRuntimes(functionRuntimes fRT) {
 
     free(fRT.arrRuntimes[i]);
   }
-  free(fRT.arrTestSizes);
   free(fRT.arrRuntimes);
+  free(fRT.arrTestSizes);
+
   free(fRT.arrAvg);
 }
