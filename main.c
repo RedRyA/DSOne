@@ -454,15 +454,15 @@ void printRuntimeTable(functionRuntimes fRT) {
  
 
   printf("\n%s\n", fRT.szName);
-  printf("%-2s", "Test Size ");
+  printf("%-7s", "Test Size ");
 
   for (i = 0; i < fRT.iNumRepeats; i++) {
 counter++;
-    printf("%5.5s %d", "Test", i + 1);
+    printf("Test %-2d",i +1);
     
   }
 
-   printf(" Avg ");
+   printf("%-5s","AVG");
 
   printf("Increase");
   printf("\n");
@@ -476,7 +476,7 @@ counter++;
 
   for (i = 0; i < fRT.iNumTestCaseSizes; i++) {
 
-    printf("%d", fRT.arrTestSizes[i]);
+    printf("%-7d", fRT.arrTestSizes[i]);
 
     for (j = 0; j < fRT.iNumRepeats; j++) {
 
@@ -484,7 +484,7 @@ counter++;
     }
     printf(" %7.3lf ", fRT.arrAvg[i]);
 
-increase=fRT.arrAvg[i]-fRT.arrAvg[i-1];
+increase=fRT.arrAvg[i]/fRT.arrAvg[i-1];
 if(i-1<0) {
 	
 	printf("%7s","N/A");
