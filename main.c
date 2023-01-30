@@ -382,7 +382,7 @@ functionRuntimes timeAlgorithm(char *szName, int iNumRepeats,
 
   ////// PUT IN PARAMS /////
 
-  // computeAvg(fRT);
+   computeAvg(fRT);
 
   return fRT;
 }
@@ -418,21 +418,33 @@ FILE *generateTestInput(int min, int max, int size) {
 /* TODO: TO BE COMPLETED BY YOU
  * Calculate and insert the average runtime for each set of test data into fRT
  */
+/////// computeAvg///////////
 void computeAvg(functionRuntimes fRT) {
   int i, j;
-  int counter;
-  double sum = 0;
+  double sum;
   double avg;
+  
   for (i = 0; i < fRT.iNumTestCaseSizes; i++) {
-    for (j = 0; j < fRT.iNumRepeats; i++) {
+sum=0;
+    for (j = 0; j < fRT.iNumRepeats; j++) {
+      // printf("Test Case Size %d %d \n",i, j);
+  sum+=fRT.arrRuntimes[i][j];
+    
+    
 
-      sum += fRT.arrRuntimes[i][j];
-      counter++;
+  avg=sum / fRT.iNumRepeats;
+      }
+   // for (j = 0; j < fRT.iNumRepeats; i++) {
+
+ 
+       
     }
+   printf(" Avg%7.3lf", avg);
+    printf("\n");
   }
-  // avg = sum / counter;
-  //  printf("This is Average %lf", sum);
-}
+  
+    //////////////////////
+
 
 /* TODO: TO BE COMPLETED BY YOU
  * Print the information in fRT as a 2d table.  Display 3 digits after the
